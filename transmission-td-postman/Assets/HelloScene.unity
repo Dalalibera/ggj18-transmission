@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 1214489496}
   - component: {fileID: 1214489495}
   m_Layer: 0
-  m_Name: Hello World!
+  m_Name: Hello
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -295,7 +295,7 @@ TextMesh:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1214489494}
-  m_Text: Hello World
+  m_Text: Hello
   m_OffsetZ: 0
   m_CharacterSize: 1
   m_LineSpacing: 1
