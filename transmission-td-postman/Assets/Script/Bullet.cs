@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour {
 
     public float speed = 7f;
     public GameObject impactEffect;
+    public int damage = 25;
 
 
     public void Seek(Transform _target) {
@@ -23,17 +24,25 @@ public class Bullet : MonoBehaviour {
         float distanceThisFrame = speed * Time.deltaTime;
 
         if (dir.magnitude <= distanceThisFrame) {
-            HitTarget();
+            HitTarget(target);
             return;
         }
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
     }
-    void HitTarget() {
+
+    void HitTarget(Transform t) {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 1f);
-        //stroy(target.gameObject);
-
         Destroy(gameObject);
+
+        Damage(t);
+    }
+
+    void Damage(Transform enemy) {
+        SpaceGhostMoviment en = enemy.GetComponent<SpaceGhostMoviment>();
+        if (en!=null) {
+            en.TakeDamage(damage);
+        }
     }
 }
