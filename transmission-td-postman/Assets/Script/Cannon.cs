@@ -6,7 +6,7 @@ public class Cannon : MonoBehaviour {
     private Transform target;
 
     [Header("Attributes")]
-    public float range = 15f;
+    public float range = 3f;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
 
@@ -55,15 +55,22 @@ public class Cannon : MonoBehaviour {
         GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in enemies) {
-            float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
+            SpaceGhostMoviment en = enemy.GetComponent<SpaceGhostMoviment>();
+            if (en != null) {
+                if (en.isAlive()) {
+                    float distanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position);
 
-            if (distanceToEnemy < shortestDistance) {
-                shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
-            }
+                    if (distanceToEnemy < shortestDistance) {
+                        shortestDistance = distanceToEnemy;
+                        nearestEnemy = enemy;
+                    }
 
-            if (nearestEnemy != null && shortestDistance <= range) {
-                target = nearestEnemy.transform;
+                    if (nearestEnemy != null && shortestDistance <= range) {
+                        target = nearestEnemy.transform;
+                    }
+                } else if (!en.isAlive() && target == en.transform){
+                    target = null ;
+                }
             }
         }
     }
