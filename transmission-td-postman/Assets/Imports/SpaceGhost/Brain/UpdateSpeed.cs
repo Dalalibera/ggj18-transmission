@@ -16,6 +16,7 @@ public class UpdateSpeed : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        animator.SetFloat("Speed", agent.velocity.magnitude);
+        float move = Input.GetAxis("Vertical");
+        animator.SetFloat("Speed", move);
 	}
 }
