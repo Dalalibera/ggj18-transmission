@@ -1,15 +1,20 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class SpaceGhostMoviment : MonoBehaviour {
 
     public float horizontalSpeed = 150f;
     public float verticalSpeed = 2f;
+    public float startHealth = 100;
+    private float health;
+    public Image healthBar;
 
     Animator animator;
 
     // Use this for initialization
     void Start() {
         animator = GetComponent<Animator>();
+        health = startHealth;
     }
 
     // Update is called once per frame
@@ -28,8 +33,20 @@ public class SpaceGhostMoviment : MonoBehaviour {
             animator.SetTrigger("Slidding");
 
         if (Input.GetKeyDown(KeyCode.F))
-            animator.SetTrigger("Death");
+            Die();
 
+    }
+
+    public void TakeDamage(int amount) {
+        health -= amount;
+        healthBar.fillAmount = health / startHealth;
+
+        if (health <= 0)
+            Die();
+    }
+
+    public void Die() {
+        animator.SetTrigger("Death");
     }
 
 }
