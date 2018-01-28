@@ -40,8 +40,6 @@ public class GameManager : MonoBehaviour {
     }
 
     public void CompleteGame() {
-        Debug.Log("complete");
-        HighScore(timer);
         isRunning = false;
         completeLevelUI.SetActive(true);
     }
@@ -74,6 +72,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public void HighScore(float score) {
+
         float maxValue = 0f;
         System.String key = null;
         foreach (System.String item in highScore.Keys) {
@@ -82,23 +81,25 @@ public class GameManager : MonoBehaviour {
                 key = item;
             }
         }
-        if (maxValue>score) {
-            if (highScore.Count > 10 && key !=null) {
+        if (highScore.Count >= 10) {
+            if (maxValue > score && key != null) {
                 highScore.Remove(key);
+            } else {
+                return;
             }
-            canvas.SetActive(true);
-            while (!btmClicked) {
-                Debug.Log("dentro do loop");
-            }
-            Debug.Log("saiu do loop");
-            highScore.Add(nome, score);
         }
+        canvas.SetActive(true);
+
+        if (!btmClicked){
+            nome = "AAA";
+        }
+
+        highScore.Add(nome, score);
     }
 
     public void teste() {
-        Debug.Log("teste");
         nome = itext.text;
-        btmClicked = true;
+        btmClicked = !btmClicked;
     }
 
     public void Save() {
