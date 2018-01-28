@@ -41,8 +41,10 @@ public class MinimapController : Editor
             cameraNode = new GameObject("Minimap-Camera");
             cameraTransform = cameraNode.transform;
             cameraTransform.parent = transform;
-            if (data.Terrain != null)
+            if(data.Player != null)
             {
+                cameraTransform.Translate(data.Player.transform.position + new Vector3(0, 500, 0));
+            } else if (data.Terrain != null) {
                 terrainBounds = CalculateBounds(data.Terrain);
                 cameraTransform.Translate(terrainBounds.Value.center + new Vector3(0, 100, 0));
             }
@@ -63,6 +65,13 @@ public class MinimapController : Editor
             {
                 camera.orthographicSize = terrainBounds.Value.extents.magnitude / 2;
             }
+        }
+
+        LinearObjectTracking tracking = cameraNode.GetComponent<LinearObjectTracking>();
+        if(tracking == null)
+        {
+            tracking = cameraNode.AddComponent<LinearObjectTracking>();
+            tracking.target = data.Player;
         }
 
         return cameraNode;
