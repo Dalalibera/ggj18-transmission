@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4963038313345260}
   - component: {fileID: 33956270566359474}
   - component: {fileID: 23825558914983130}
+  - component: {fileID: 64301583334317410}
   m_Layer: 0
   m_Name: tile-fullmountain-3
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4168112642021736}
+  - component: {fileID: 64577359187612506}
   m_Layer: 0
   m_Name: tile-fullmountain-3
   m_TagString: Untagged
@@ -111,3 +113,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1439677401782872}
   m_Mesh: {fileID: 4300000, guid: c4675a36e3a478340b4e9ab567a8c002, type: 3}
+--- !u!64 &64301583334317410
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1439677401782872}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: c4675a36e3a478340b4e9ab567a8c002, type: 3}
+--- !u!64 &64577359187612506
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1741977568995104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}

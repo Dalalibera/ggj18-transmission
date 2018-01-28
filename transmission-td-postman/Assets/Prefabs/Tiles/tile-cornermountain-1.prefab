@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4584137011902790}
   - component: {fileID: 33439783076907940}
   - component: {fileID: 23817884021825880}
+  - component: {fileID: 64588647069784982}
   m_Layer: 0
   m_Name: tile-cornermountain-1
   m_TagString: Untagged
@@ -36,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4492817196707756}
+  - component: {fileID: 64562088235381692}
   m_Layer: 0
   m_Name: tile-cornermountain-1
   m_TagString: Untagged
@@ -110,4 +112,32 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433049820355498}
+  m_Mesh: {fileID: 4300000, guid: 5ad29ee69cdde4f46a7d9eea5eb4aabb, type: 3}
+--- !u!64 &64562088235381692
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1934954669205030}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 0}
+--- !u!64 &64588647069784982
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433049820355498}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 0
+  m_InflateMesh: 0
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5ad29ee69cdde4f46a7d9eea5eb4aabb, type: 3}
