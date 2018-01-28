@@ -8,6 +8,30 @@ using UnityEngine;
 public class TileData : MonoBehaviour
 {
 
+    public GameObject full1;
+    public GameObject corner1;
+    public GameObject half1;
+    public GameObject quarter1;
+    public GameObject grass1;
+
+    public GameObject full2;
+    public GameObject corner2;
+    public GameObject half2;
+    public GameObject quarter2;
+    public GameObject grass2;
+
+    public GameObject full3;
+    public GameObject corner3;
+    public GameObject half3;
+    public GameObject quarter3;
+    public GameObject grass3;
+
+    public GameObject full4;
+    public GameObject corner4;
+    public GameObject half4;
+    public GameObject quarter4;
+    public GameObject grass4;
+
     [TextArea]
     public string Tiles;
 
@@ -37,12 +61,42 @@ public class TileData : MonoBehaviour
             maxLineSize = Math.Max(maxLineSize, line.Length);
         }
 
-        Dictionary<char, GameObject> tileModels = new Dictionary<char, GameObject>();
-        tileModels.Add('F', Resources.Load("Tiles/tile-fullmountain", typeof(GameObject)) as GameObject);
-        tileModels.Add('C', Resources.Load("Tiles/tile-cornermountain", typeof(GameObject)) as GameObject);
-        tileModels.Add('H', Resources.Load("Tiles/tile-halfmountain", typeof(GameObject)) as GameObject);
-        tileModels.Add('Q', Resources.Load("Tiles/tile-quartermountain", typeof(GameObject)) as GameObject);
-        tileModels.Add('G', Resources.Load("Tiles/tile-grass", typeof(GameObject)) as GameObject);
+        //tileModels.Add('F', Resources.Load("Tiles/tile-fullmountain-1", typeof(GameObject)) as GameObject);
+        //tileModels.Add('C', Resources.Load("Tiles/tile-cornermountain-1", typeof(GameObject)) as GameObject);
+        //tileModels.Add('H', Resources.Load("Tiles/tile-halfmountain-1", typeof(GameObject)) as GameObject);
+        //tileModels.Add('Q', Resources.Load("Tiles/tile-quartermountain-1", typeof(GameObject)) as GameObject);
+        //tileModels.Add('G', Resources.Load("Tiles/tile-grass-1", typeof(GameObject)) as GameObject);
+
+        Dictionary<char, GameObject>[] tileModels = new Dictionary<char, GameObject>[4];
+        tileModels[0] = new Dictionary<char, GameObject>();
+        tileModels[1] = new Dictionary<char, GameObject>();
+        tileModels[2] = new Dictionary<char, GameObject>();
+        tileModels[3] = new Dictionary<char, GameObject>();
+
+        tileModels[0].Add('F', full1);
+        tileModels[1].Add('F', full2);
+        tileModels[2].Add('F', full3);
+        tileModels[3].Add('F', full4);
+
+        tileModels[0].Add('G', grass1);
+        tileModels[1].Add('G', grass2);
+        tileModels[2].Add('G', grass3);
+        tileModels[3].Add('G', grass4);
+
+        tileModels[0].Add('Q', quarter1);
+        tileModels[1].Add('Q', quarter2);
+        tileModels[2].Add('Q', quarter3);
+        tileModels[3].Add('Q', quarter4);
+
+        tileModels[0].Add('C', corner1);
+        tileModels[1].Add('C', corner2);
+        tileModels[2].Add('C', corner3);
+        tileModels[3].Add('C', corner4);
+        
+        tileModels[0].Add('H', half1);
+        tileModels[1].Add('H', half2);
+        tileModels[2].Add('H', half3);
+        tileModels[3].Add('H', half4);
 
         char[,] tiles = new char[lines.Length, maxLineSize];
 
@@ -59,19 +113,21 @@ public class TileData : MonoBehaviour
         }
 
         TileCalculator calculator = new TileCalculator(tiles);
+        int index = 0;
 
         for (z = 0; z < tiles.GetLength(0); ++z)
         {
             for (x = 0; x < tiles.GetLength(1); ++x)
             {
                 char tile = tiles[z, x];
-                if(!tileModels.ContainsKey(tile))
+                if(!tileModels[index % tileModels.Length].ContainsKey(tile))
                     continue;
-                GameObject prefab = tileModels[tile];
+                GameObject prefab = tileModels[index % tileModels.Length][tile];
                 GameObject instance = Instantiate(prefab) as GameObject;
                 instance.transform.parent = transform;
-                instance.transform.Translate(x * 4, 0, z * 4, Space.Self);
+                instance.transform.Translate(x * 4 * 10, 0, z * 4 * 10, Space.Self);
                 instance.transform.Rotate(Vector3.up, calculator.CalculateTileRotation(x, z), Space.Self);
+                index++;
             }
         }
     }
