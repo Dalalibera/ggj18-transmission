@@ -66,7 +66,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1629389726611116}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 61.13385, y: 1.985, z: -13.88}
+  m_LocalPosition: {x: 100.96, y: 2.62, z: 29.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4208638820423850}
@@ -163,7 +163,7 @@ MonoBehaviour:
   radius: 1.5
   impactEffect: {fileID: 1807784692605934, guid: 908a94bb53868754992f992e7e1771fd,
     type: 2}
-  damage: 1
+  damage: 25
 --- !u!135 &135020866957390616
 SphereCollider:
   m_ObjectHideFlags: 1
