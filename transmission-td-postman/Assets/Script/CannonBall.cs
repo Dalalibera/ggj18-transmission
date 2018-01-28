@@ -13,9 +13,10 @@ public class CannonBall : MonoBehaviour {
     public int damage;
 
 
-    public void Seek(Transform _target) {
+    public void Seek(Transform _target, int damage) {
         target = _target;
         targetPosition = _target.position;
+        this.damage = damage;
     }
 
     // Update is called once per frame
@@ -59,6 +60,6 @@ public class CannonBall : MonoBehaviour {
     }
 
     void OnCollisionEnter(Collision collision) {
-        HitTarget(collision.transform.parent.transform, true);
+        HitTarget(collision.transform, true);
     }
 }

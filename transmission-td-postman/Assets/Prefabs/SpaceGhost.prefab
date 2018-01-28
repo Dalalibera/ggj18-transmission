@@ -189,7 +189,6 @@ GameObject:
   - component: {fileID: 136192665014072954}
   - component: {fileID: 195735605813999254}
   - component: {fileID: 114151453535671654}
-  - component: {fileID: 54752138599624918}
   - component: {fileID: 95405233063733586}
   - component: {fileID: 114413060824940470}
   m_Layer: 0
@@ -301,8 +300,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4081391939641034}
   - component: {fileID: 137481427800741106}
-  - component: {fileID: 54800808546757242}
-  - component: {fileID: 64908253269935268}
   m_Layer: 0
   m_Name: spaceghost
   m_TagString: Player
@@ -446,6 +443,7 @@ GameObject:
   - component: {fileID: 54825176940624438}
   - component: {fileID: 64030543685688852}
   - component: {fileID: 114008412988543744}
+  - component: {fileID: 54752138599624918}
   m_Layer: 0
   m_Name: SpaceGhost
   m_TagString: Enemy
@@ -863,7 +861,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &54752138599624918
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1953425928506656}
@@ -900,9 +898,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 1
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 653855149f0042048ab5d08ed4aeb917, type: 3}
 --- !u!95 &95014585669747006
@@ -1237,7 +1235,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1215047259893584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0149998665, y: 0.099999994, z: 0.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224656049850800210}
@@ -1255,7 +1253,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1507050848335578}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.15, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224379416658507952}
@@ -1274,7 +1272,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355736366397786}
   m_LocalRotation: {x: 0.10452841, y: -0, z: -0, w: 0.9945219}
-  m_LocalPosition: {x: 0, y: 0.31, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_Children:
   - {fileID: 224656049850800210}

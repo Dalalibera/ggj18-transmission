@@ -17,6 +17,7 @@ public class Cannon : MonoBehaviour {
 
     public GameObject bulletPrefab;
     public Transform firePoint;
+    public int damage;
 
     // Use this for initialization
     void Start() {
@@ -45,7 +46,7 @@ public class Cannon : MonoBehaviour {
         CannonBall bullet = bulletGO.GetComponent<CannonBall>();
 
         if (bullet != null) {
-            bullet.Seek(target);
+            bullet.Seek(target,damage);
         }
     }
 
