@@ -52,6 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4772956737318772}
   - component: {fileID: 114520408603226336}
+  - component: {fileID: 54274449102633252}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -120,15 +121,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1544563021162290}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 23.446514, y: 0, z: -0.7101264}
+  m_LocalRotation: {x: 0.009215719, y: 0.6519277, z: -0.022421537, w: 0.7578936}
+  m_LocalPosition: {x: 87.57, y: 2, z: 38.7874}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4538699926420420}
   - {fileID: 4137666608763060}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 2.476, y: 81.37601, z: -1.2600001}
 --- !u!23 &23491913960563496
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -170,6 +171,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1027620663305950}
   m_Mesh: {fileID: 4300000, guid: 2610fc70ab4c3e949804b805df499f1f, type: 3}
+--- !u!54 &54274449102633252
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1544563021162290}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &114520408603226336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,11 +198,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 5
+  range: 50
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4772956737318772}
   turnSpeed: 10
-  bulletPrefab: {fileID: 1676007305070786, guid: 3429b76e79c6b2847a1558327cea15a6,
+  bulletPrefab: {fileID: 1629389726611116, guid: 24385426bb756a044abb9247cebf8e10,
     type: 2}
   firePoint: {fileID: 4078814232375082}

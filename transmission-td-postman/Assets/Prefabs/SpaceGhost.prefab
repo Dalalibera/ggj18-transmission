@@ -169,9 +169,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4952471072170772}
-  - component: {fileID: 54479546775533156}
   - component: {fileID: 136192665014072954}
   - component: {fileID: 195735605813999254}
+  - component: {fileID: 54258913037939818}
+  - component: {fileID: 95579487864696632}
+  - component: {fileID: 114151453535671654}
   m_Layer: 0
   m_Name: mixamorig:Hips
   m_TagString: Untagged
@@ -721,8 +723,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1953425928506656}
   m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 24.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 101.42, y: 1.4, z: 47.76}
+  m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4952471072170772}
   - {fileID: 4081391939641034}
@@ -800,7 +802,7 @@ Transform:
   m_Father: {fileID: 4671515339355744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54479546775533156
+--- !u!54 &54258913037939818
 Rigidbody:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -811,7 +813,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -832,6 +834,23 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!95 &95579487864696632
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317428416950068}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 653855149f0042048ab5d08ed4aeb917, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0adcaaac8e2629d48b99c33a4ae99905, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114028791096245510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -845,6 +864,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontalSpeed: 150
   verticalSpeed: 10
+  startHealth: 100
+  healthBar: {fileID: 0}
+--- !u!114 &114151453535671654
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1317428416950068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265c1854d3c4a0745a004a65728489d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalSpeed: 150
+  verticalSpeed: 2
   startHealth: 100
   healthBar: {fileID: 0}
 --- !u!114 &114218770160060924
@@ -944,7 +978,7 @@ NavMeshAgent:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1317428416950068}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.1
   m_Speed: 3.5

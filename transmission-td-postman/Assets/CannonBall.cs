@@ -10,7 +10,7 @@ public class CannonBall : MonoBehaviour {
     public float speed = 30f;
     public float radius = 1.5f;
     public GameObject impactEffect;
-    public int damage = 25;
+    public int damage;
 
 
     public void Seek(Transform _target) {
@@ -56,5 +56,9 @@ public class CannonBall : MonoBehaviour {
         if (en != null) {
             en.TakeDamage(damage);
         }
+    }
+
+    void OnCollisionEnter(Collision collision) {
+        HitTarget(collision.transform.parent.transform, true);
     }
 }

@@ -16,12 +16,12 @@ public class SpaceGhostMoviment : MonoBehaviour {
     void Start() {
         animator = GetComponent<Animator>();
         health = startHealth;
-        alive = true;
+        this.alive = true;
     }
 
     // Update is called once per frame
     void Update() {
-        if (alive) {
+        if (this.alive) {
             var x = Input.GetAxis("Horizontal") * Time.deltaTime * horizontalSpeed;
             var z = Input.GetAxis("Vertical") * Time.deltaTime * verticalSpeed;
 
@@ -33,25 +33,27 @@ public class SpaceGhostMoviment : MonoBehaviour {
 
             if (Input.GetKeyDown(KeyCode.LeftControl))
                 animator.SetTrigger("Slidding");
+
+            if (Input.GetKeyDown(KeyCode.F))
+                Die();
         }
 
+        if (health <= 0 && alive)
+            Die();
     }
 
     public bool isAlive() {
-        return alive;
+        return this.alive;
     }
 
     public void TakeDamage(int amount) {
         health -= amount;
         healthBar.fillAmount = health / startHealth;
-
-        if (health <= 0)
-            Die();
     }
 
     public void Die() {
+        this.alive = false;
         animator.SetTrigger("Death");
-        alive = false;
     }
 
 }
