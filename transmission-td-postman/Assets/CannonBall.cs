@@ -57,14 +57,4 @@ public class CannonBall : MonoBehaviour {
             en.TakeDamage(damage);
         }
     }
-
-    void OnCollisionEnter(Collision col) {
-        Debug.Log("Enter");
-        HitTarget(col.transform, true);
-    }
-
-    void OnTriggerEnter() {
-        Debug.Log("trigger");
-        //HitTarget(other.transform,true);
-    }
 }
