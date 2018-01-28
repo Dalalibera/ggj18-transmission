@@ -7,7 +7,7 @@ public class FollowPlayer : MonoBehaviour {
     public Vector3 playerDir;
     public Vector3 playerPrevPos;
     public float distance;
-    float cameraCorrection = 0;
+    float cameraCorrection = 4;
     
     void LateUpdate() {
 

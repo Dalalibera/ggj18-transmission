@@ -9,6 +9,7 @@ public class SpaceGhostMoviment : MonoBehaviour {
     private float health;
     public Image healthBar;
     private bool alive;
+    float lockPos = 0;
 
     Animator animator;
 
@@ -28,8 +29,11 @@ public class SpaceGhostMoviment : MonoBehaviour {
             transform.Rotate(0, x, 0);
             transform.Translate(0, 0, z);
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space)){
                 animator.SetTrigger("Jumping");
+                GetComponent<Rigidbody>().velocity = new Vector3(0, 10, 0);
+            }
+                
 
             if (Input.GetKeyDown(KeyCode.LeftControl))
                 animator.SetTrigger("Slidding");
@@ -37,6 +41,8 @@ public class SpaceGhostMoviment : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.F))
                 Die();
         }
+
+        transform.rotation = Quaternion.Euler(lockPos, transform.rotation.eulerAngles.y, lockPos);
 
         if (health <= 0 && alive)
             Die();
