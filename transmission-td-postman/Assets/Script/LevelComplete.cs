@@ -2,7 +2,12 @@
 
 public class LevelComplete : MonoBehaviour {
 
+    public GameManager gm;
+
     public void LoadNextLevel() {
-        //Debug.Log("NEXT LEVEL");
+        Time.timeScale = 0;
+        if(gm != null){
+            gm.HighScore(gm.timer);
+        }        
     }
 }
