@@ -32,6 +32,15 @@ public class TileData : MonoBehaviour
     public GameObject quarter4;
     public GameObject grass4;
 
+    [Serializable]
+    public struct CollisionMeshRelation
+    {
+        public char TileId;
+        public Mesh CollisionMesh;
+    }
+
+    public CollisionMeshRelation[] CollisionMeshes;
+
     [TextArea]
     public string Tiles;
 
@@ -115,6 +124,12 @@ public class TileData : MonoBehaviour
         TileCalculator calculator = new TileCalculator(tiles);
         int index = 0;
 
+        Dictionary<char, Mesh> collisionMeshes = new Dictionary<char, Mesh>();
+        foreach(CollisionMeshRelation rel in CollisionMeshes)
+        {
+            collisionMeshes.Add(rel.TileId, rel.CollisionMesh);
+        }
+
         for (z = 0; z < tiles.GetLength(0); ++z)
         {
             for (x = 0; x < tiles.GetLength(1); ++x)
@@ -122,9 +137,17 @@ public class TileData : MonoBehaviour
                 char tile = tiles[z, x];
                 if(!tileModels[index % tileModels.Length].ContainsKey(tile))
                     continue;
+                // create tile
                 GameObject prefab = tileModels[index % tileModels.Length][tile];
                 GameObject instance = Instantiate(prefab) as GameObject;
                 instance.transform.parent = transform;
+                // create collision mesh
+                if(collisionMeshes.ContainsKey(tile))
+                {
+                    MeshCollider collider = instance.AddComponent<MeshCollider>();
+                    collider.sharedMesh = collisionMeshes[tile];
+                }
+                // put it in place
                 instance.transform.Translate(x * 4 * 10, 0, z * 4 * 10, Space.Self);
                 instance.transform.Rotate(Vector3.up, calculator.CalculateTileRotation(x, z), Space.Self);
                 index++;
