@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
     public GameObject completeLevelUI;
@@ -14,11 +15,12 @@ public class GameManager : MonoBehaviour {
     public InputField itext;
     public float randomRange;
     public Text txt;
+    public Text hiScore;
     public GameObject canvas;
     private bool btmClicked;
     private System.String nome;
 
-    public Dictionary<string,float> highScore = new Dictionary<string,float>();
+    public Dictionary<float, System.String> highScoreDict = new Dictionary<float, System.String>();
 
     private Vector3 offset;
 
@@ -28,6 +30,20 @@ public class GameManager : MonoBehaviour {
     private void Start() {
         btmClicked = false;
         Load();
+
+        foreach (float item in highScoreDict.Keys){
+            float minValue = float.MaxValue;
+            foreach (float score in highScoreDict.Keys){
+                if (minValue > score){
+                    minValue = score;
+                }
+
+            }
+
+            hiScore.text += highScoreDict[item] + ": " + item + " \n";
+            highScoreDict.Remove(minValue);
+        }
+
         isRunning = false;
         timer = 0f;
     }
@@ -74,46 +90,49 @@ public class GameManager : MonoBehaviour {
     public void HighScore(float score) {
 
         float maxValue = 0f;
-        System.String key = null;
-        foreach (System.String item in highScore.Keys) {
-            if (maxValue<highScore[item]) {
-                maxValue = highScore[item];
+        float key = 0;
+        foreach (float item in highScoreDict.Keys) {
+            if (maxValue<item) {
+                maxValue = item;
                 key = item;
             }
         }
-        if (highScore.Count >= 10) {
-            if (maxValue > score && key != null) {
-                highScore.Remove(key);
+        if (highScoreDict.Count >= 10) {
+            if (maxValue > score && key > 0) {
+                highScoreDict.Remove(key);
             } else {
+                Time.timeScale = 1;
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 return;
             }
         }
         canvas.SetActive(true);
-
-        if (!btmClicked){
-            nome = "AAA";
-        }
-
-        highScore.Add(nome, score);
     }
 
     public void teste() {
         nome = itext.text;
+        Debug.Log(highScoreDict.Count);
         btmClicked = !btmClicked;
+        highScoreDict.Add(timer, nome);
+        Debug.Log(highScoreDict.Count);
+        Save();
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void Save() {
         BinaryFormatter bf = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/highScore.gd");
-        bf.Serialize(file, highScore);
+        bf.Serialize(file, highScoreDict);
         file.Close();
     }
 
     public void Load() {
         if (File.Exists(Application.persistentDataPath + "/highScore.gd")) {
+            Debug.Log(Application.persistentDataPath + "/highScore.gd");
             BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/savedGames.gd", FileMode.Open);
-    //        SaveLoad.savedGames = (List<Game>)bf.Deserialize(file);
+            FileStream file = File.Open(Application.persistentDataPath + "/highScore.gd", FileMode.Open);
+            highScoreDict = (Dictionary<float, System.String>)bf.Deserialize(file);
             file.Close();
         }
     }
