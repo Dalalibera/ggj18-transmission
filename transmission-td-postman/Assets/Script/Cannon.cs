@@ -35,14 +35,14 @@ public class Cannon : MonoBehaviour {
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
 
         if (fireCountdown <= 0f) {
-            shoot();
+            Shoot();
             fireCountdown = 1f / fireRate;
         }
         fireCountdown -= Time.deltaTime;
     }
-    void shoot() {
+    void Shoot() {
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-        Bullet bullet = bulletGO.GetComponent<Bullet>();
+        CannonBall bullet = bulletGO.GetComponent<CannonBall>();
 
         if (bullet != null) {
             bullet.Seek(target);

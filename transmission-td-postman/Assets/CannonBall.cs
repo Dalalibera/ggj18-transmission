@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class Bullet : MonoBehaviour {
+public class CannonBall : MonoBehaviour {
 
     Transform target;
     Vector3 targetPosition;
 
-    public float speed = 7f;
+    public float speed = 30f;
     public float radius = 1.5f;
     public GameObject impactEffect;
     public int damage = 25;
@@ -29,8 +31,9 @@ public class Bullet : MonoBehaviour {
         if (dir.magnitude <= distanceThisFrame) {
             dir = target.position - transform.position;
             if (dir.magnitude <= radius) {
-                HitTarget(target,true);
-            }else {
+                HitTarget(target, true);
+            }
+            else {
                 HitTarget(target, false);
             }
             return;

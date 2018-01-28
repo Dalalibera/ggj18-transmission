@@ -9,15 +9,15 @@ public class FollowPlayer : MonoBehaviour {
     public float distance;
 
     void Start() {
-        offset = transform.position - player.transform.position;
+        /*offset = transform.position - player.transform.position;
         distance = offset.magnitude;
-        playerPrevPos = player.transform.position;        
+        playerPrevPos = player.transform.position;        */
     }
 
 
     void LateUpdate() {
-        //transform.position = player.position + offset;
-        playerDir = player.transform.position - playerPrevPos;
+        transform.position = player.position + offset;
+        /*ayerDir = player.transform.position - playerPrevPos;
 
         playerDir.Normalize();
         if (playerDir.x!=0) {
@@ -25,6 +25,6 @@ public class FollowPlayer : MonoBehaviour {
         }
 
         transform.LookAt(player.transform.position);
-        playerPrevPos = player.transform.position;
+        playerPrevPos = player.transform.position;*/
     }
 }
