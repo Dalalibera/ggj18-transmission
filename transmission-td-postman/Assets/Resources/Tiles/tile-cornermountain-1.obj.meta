@@ -1,29 +1,24 @@
 fileFormatVersion: 2
-guid: 2610fc70ab4c3e949804b805df499f1f
-timeCreated: 1517052571
+guid: 5ad29ee69cdde4f46a7d9eea5eb4aabb
+timeCreated: 1517098357
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: cannon
+    100000: tile-cornermountain-1
     100002: //RootNode
-    400000: cannon
+    400000: tile-cornermountain-1
     400002: //RootNode
-    2100000: cannonMat
-    2300000: cannon
-    3300000: cannon
-    4300000: cannon
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: cannonMat
-    second: {fileID: 2100000, guid: 83ccb0da09a8e174b9792b3272b968de, type: 2}
+    2100000: tile-cornermountain-1Mat
+    2300000: tile-cornermountain-1
+    3300000: tile-cornermountain-1
+    4300000: tile-cornermountain-1
+  externalObjects: {}
   materials:
     importMaterials: 1
-    materialName: 1
+    materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -48,7 +43,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.35
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
     importVisibility: 1
@@ -67,7 +62,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

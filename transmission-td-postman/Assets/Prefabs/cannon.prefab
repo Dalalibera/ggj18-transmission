@@ -53,7 +53,7 @@ GameObject:
   - component: {fileID: 4772956737318772}
   - component: {fileID: 114520408603226336}
   m_Layer: 0
-  m_Name: cannon (1)
+  m_Name: cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db445722e4527c4fae2f111e2e9a7ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 15
+  target: {fileID: 0}
+  range: 5
   fireRate: 1
   enemyTag: Enemy
   partToRotate: {fileID: 4772956737318772}

@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Cannon : MonoBehaviour {
 
-    private Transform target;
+    public Transform target;
 
     [Header("Attributes")]
     public float range = 3f;
@@ -68,8 +68,12 @@ public class Cannon : MonoBehaviour {
                     if (nearestEnemy != null && shortestDistance <= range) {
                         target = nearestEnemy.transform;
                     }
-                } else if (!en.isAlive() && target == en.transform){
-                    target = null ;
+                    else {
+                        target = null;
+                    }
+                }
+                else if (!en.isAlive() && target == en.transform) {
+                    target = null;
                 }
             }
         }
