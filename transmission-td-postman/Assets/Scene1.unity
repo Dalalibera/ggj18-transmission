@@ -667,11 +667,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1472765576}
-<<<<<<< HEAD
-  offset: {x: 10, y: 5, z: 0}
-=======
   offset: {x: 10, y: -7, z: 0}
->>>>>>> b504cedf2379e3f5ac2daadc2530a5675400d2cf
   playerDir: {x: 0, y: 0, z: 0}
   playerPrevPos: {x: 0, y: 0, z: 0}
   distance: 0
