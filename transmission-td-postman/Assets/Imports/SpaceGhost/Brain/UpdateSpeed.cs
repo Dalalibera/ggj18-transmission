@@ -5,12 +5,10 @@ using UnityEngine.AI;
 
 public class UpdateSpeed : MonoBehaviour {
 
-    private NavMeshAgent agent;
     private Animator animator;
 
 	// Use this for initialization
 	void Start () {
-        agent = gameObject.GetComponent<NavMeshAgent>();
         animator = gameObject.GetComponent<Animator>();
 	}
 	

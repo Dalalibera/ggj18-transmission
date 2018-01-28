@@ -34,8 +34,9 @@ public class SpaceGhostMoviment : MonoBehaviour {
             if (Input.GetKeyDown(KeyCode.LeftControl))
                 animator.SetTrigger("Slidding");
 
-            if (Input.GetKeyDown(KeyCode.F))
-                Die();
+            if (Input.GetKeyDown(KeyCode.S)|| Input.GetKeyDown(KeyCode.DownArrow))
+                animator.SetTrigger("Backward");
+
         }
 
         if (health <= 0 && alive)
